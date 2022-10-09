@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main>
+
+    <section>
+
+      <nav>
+
+        <button id="logo"><img src="./public/logo.svg" alt=""></button>
+
+        <ul id="mainNav">
+          <li class="navElement navElement1"><button>Home</button></li>
+          <li class="navElement navElement2"><button>Shop</button></li>
+          <li class="navElement navElement3"><button>About</button></li>
+          <li class="navElement navElement4"><button>Contact</button></li>
+        </ul>
+
+      </nav>
+
+      <div id="hiddenNav">
+        <button id="menu"><img src="./public/icon-hamburger.svg" alt=""></button>
+        
+        <button id="logo"><img src="./public/logo.svg" alt=""></button>
+      </div>
+
+      <div id="hiddenMenu" class="hiddenMenu">
+        <button id="close" class="btnClose"><img src="./public/icon-close.svg" alt=""></button>
+        <ul>
+          <li class="hiddenElement hiddenElement1"><button>Home</button></li>
+          <li class="hiddenElement hiddenElement2"><button>Shop</button></li>
+          <li class="hiddenElement hiddenElement3"><button>About</button></li>
+          <li class="hiddenElement hiddenElement4"><button>Contact</button></li>
+        </ul>
+      </div>
+
+
+      <img id="image" class="image" src="./public/desktop-image-hero-1.jpg" alt="" class="mobile">
+
+
+    </section>
+
+    <aside>
+
+      <div class="asideText">
+        <h2 id="title">Discover innovative ways to decorate</h2>
+        <p id="text">
+          We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.
+        </p>
+
+        <button id="shopNow">SHOP NOW <img src="./public/icon-arrow.svg" alt=""></button>
+      </div>
+
+
+      <div id="btnBox">
+        <button id="btnLeft" class="slideBtn"><img src="./public/icon-angle-left.svg" alt=""></button>
+        <button id="btnRight" class="slideBtn"><img src="./public/icon-angle-right.svg" alt=""></button>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer>
+
+    <img id="footerLeft" src="./public/image-about-dark.jpg">
+
+    <div id="footerCenter">
+      <h3 id="footerCenterTitle">About our furniture</h3>
+      <p id="footerCentertText">
+        Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specialists are available to help you create your dream space.
+      </p>
+    </div>
+
+    <img src="./public/image-about-light.jpg" alt="" id="footerRight">
+
+  </footer>
+  <script type="module" src="/main.js"></script>
+</body>
+
+</html>
