@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap');
+
+    *,
+    *::after,
+    *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'League Spartan', sans-serif;
+    }
+
+    :root {
+      --a: 1px solid black;
+
+      --clr-nav: hsl(0, 0%, 100%);
+      --clr-title: hsl(0, 0%, 0%);
+      --clr-text: hsl(0, 0%, 63%);
+      --clr-after: hsl(0, 0%, 27%);
+
+      --fs-1: 35px;
+      --fs-2: 25px;
+      --fs-3: 18px;
+
+    }
+
+    #hiddenNav {
+      display: none;
+    }
+
+    #hiddenMenu {
+      display: none;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    main {
+      width: 100%;
+      max-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    section {
+      position: relative;
+      width: 60vw;
+      height: auto;
+      max-height: 60vw;
+      overflow: hidden;
+    }
+
+    #logo {
+      background-color: transparent;
+      border: none;
+    }
+
+    nav {
+      position: fixed;
+      top: 50px;
+      left: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      list-style: none;
+    }
+
+    li button {
+      position: relative;
+      background-color: transparent;
+      border: none;
+      color: var(--clr-nav);
+      font-size: var(--fs-3);
+    }
+
+    li button::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      transform: translateX(-50%) scaleX(0);
+      transform-origin: bottom right;
+      background-color: var(--clr-nav);
+      transition: transform 0.25s ease-out;
+    }
+
+    li button:hover::after {
+      transform: translateX(-50%) scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+
+    aside {
+      position: relative;
+      width: 40vw;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .asideText {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    aside .asideText {
+      width: 70%;
+    }
+
+    aside h2 {
+      font-size: var(--fs-1);
+    }
+
+    aside p {
+      line-height: 18px;
+      word-spacing: 2px;
+      text-align: justify;
+      color: var(--clr-text);
+    }
+
+    #shopNow {
+      align-self: flex-start;
+      position: relative;
+      width: max-content;
+      border: none;
+      text-align: left;
+      letter-spacing: 10px;
+      font-size: var(--fs-3);
+      background-color: transparent;
+      transition: 0.3s;
+    }
+
+    #shopNow:hover {
+      letter-spacing: 12px;
+    }
+
+    #btnBox {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 12.7vw;
+      height: calc(12.7vw / 2);
+      display: flex;
+      z-index: 10;
+    }
+
+    #btnBox button {
+      width: 100%;
+      height: 100%;
+      background-color: var(--clr-title);
+      border: none;
+    }
+
+    #btnBox button:hover {
+      background-color: var(--clr-after);
+    }
+
+
+    footer {
+      width: 100vw;
+      height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    footer>* {
+      min-width: 350px;
+      height: 30vh;
+    }
+
+    #footerCenter {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    #footerCenter>* {
+      width: 80%;
+    }
+
+    #footerCenter p {
+      line-height: 19px;
+      color: var(--clr-text);
+    }
+
+    footer h3 {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-size: var(--fs-3);
+    }
+
+
+    @media (max-width: 500px) {
+
+
+      body {
+        height: auto;
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0px;
+        max-height: 1000vh;
+      }
+
+      section {
+        position: relative;
+        width: 100vw;
+        height: auto;
+        overflow: hidden;
+      }
+
+      #hiddenNav {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 140px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
+
+      #hiddenNav button {
+        background-color: transparent;
+        border: none;
+      }
+
+      #hiddenMenu {
+        transform: scaleX(0);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 70vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        z-index: 10;
+        background-color: white;
+        transform-origin: left;
+        transition: 0.2s;
+      }
+
+      #hiddenMenu.show {
+        transform: scaleX(1);
+      }
+
+      body.show {
+        overflow: hidden;
+      }
+
+      body.show::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--clr-after);
+        opacity: 0.8;
+        z-index: 8;
+
+      }
+
+      #hiddenMenu ul {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        color: black;
+        z-index: 10;
+        list-style: none;
+      }
+
+      #hiddenMenu ul li button {
+        font-size: var(--fs-2);
+        color: black;
+      }
+
+      #close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: transparent;
+        border: var(--a);
+        z-index: 12;
+      }
+
+      .image {
+        width: 100vw;
+        height: 100%;
+      }
+
+      aside {
+        width: 100vw;
+        height: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #btnBox {
+        bottom: 100%;
+        right: 0;
+        left: auto;
+        width: 100px;
+        height: 50px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      footer {
+        width: 100vw;
+        height: auto;
+        flex-direction: column;
+      }
+
+      footer img {
+        width: 100%;
+      }
+
+      #footerCenter {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <section>
+
+      <nav>
+
+        <button id="logo"><img src="./public/logo.svg" alt=""></button>
+
+        <ul id="mainNav">
+          <li class="navElement navElement1"><button>Home</button></li>
+          <li class="navElement navElement2"><button>Shop</button></li>
+          <li class="navElement navElement3"><button>About</button></li>
+          <li class="navElement navElement4"><button>Contact</button></li>
+        </ul>
+
+      </nav>
+
+      <div id="hiddenNav">
+        <button id="menu"><img src="./public/icon-hamburger.svg" alt=""></button>
+
+        <button id="logo"><img src="./public/logo.svg" alt=""></button>
+      </div>
+
+      <div id="hiddenMenu" class="hiddenMenu">
+        <button id="close" class="btnClose"><img src="./public/icon-close.svg" alt=""></button>
+        <ul>
+          <li class="hiddenElement hiddenElement1"><button>Home</button></li>
+          <li class="hiddenElement hiddenElement2"><button>Shop</button></li>
+          <li class="hiddenElement hiddenElement3"><button>About</button></li>
+          <li class="hiddenElement hiddenElement4"><button>Contact</button></li>
+        </ul>
+      </div>
+
+
+      <img id="image" class="image" src="./public/desktop-image-hero-1.jpg" alt="" class="mobile">
+
+
+    </section>
+
+    <aside>
+
+      <div class="asideText">
+        <h2 id="title">Discover innovative ways to decorate</h2>
+        <p id="text">
+          We provide unmatched quality, comfort, and style for property owners across the country.
+          Our experts combine form and function in bringing your vision to life. Create a room in your
+          own style with our collection and make your property a reflection of you and what you love.
+        </p>
+
+        <button id="shopNow">SHOP NOW <img src="./public/icon-arrow.svg" alt=""></button>
+      </div>
+
+
+      <div id="btnBox">
+        <button id="btnLeft" class="slideBtn"><img src="./public/icon-angle-left.svg" alt=""></button>
+        <button id="btnRight" class="slideBtn"><img src="./public/icon-angle-right.svg" alt=""></button>
+      </div>
+
+    </aside>
+
+  </main>
+
+  <footer>
+
+    <img id="footerLeft" src="./public/image-about-dark.jpg">
+
+    <div id="footerCenter">
+      <h3 id="footerCenterTitle">About our furniture</h3>
+      <p id="footerCentertText">
+        Our multifunctional collection blends design and function to suit your individual taste.
+        Make each room unique, or pick a cohesive theme that best express your interests and what
+        inspires you. Find the furniture pieces you need, from traditional to contemporary styles
+        or anything in between. Product specialists are available to help you create your dream space.
+      </p>
+    </div>
+
+    <img src="./public/image-about-light.jpg" alt="" id="footerRight">
+
+  </footer>
+  
+  <script>
+    import data from './data.json' assert {type: 'json'};
+
+    const menu = document.getElementById('menu');
+    const hiddenMenu = document.getElementById('hiddenMenu');
+    const closeBtn = document.getElementsByClassName('btnClose')[0];
+
+    menu.addEventListener('click', () => {
+      document.body.classList.add('show');
+      hiddenMenu.classList.add('show');
+
+      document.body.addEventListener('mousedown', (e) => {
+        let x = hiddenMenu.getBoundingClientRect().right;
+        if (e.clientX > x) {
+
+          document.body.classList.remove('show');
+          hiddenMenu.classList.remove('show');
+        }
+      })
+    })
+
+    closeBtn.addEventListener('click', () => {
+      document.body.classList.remove('show');
+      hiddenMenu.classList.remove('show');
+    })
+
+    const left = document.getElementById('btnLeft');
+    const right = document.getElementById('btnRight');
+
+    const image = document.getElementById('image');
+    const titre = document.getElementById('title');
+    const text = document.getElementById('text');
+
+    let i = 0;
+    let tabImg = ["./public/desktop-image-hero-1.jpg", "./public/desktop-image-hero-2.jpg", "./public/desktop-image-hero-3.jpg"];
+    image.src = tabImg[i];
+    titre.innerText = data.elements[i].title;
+    text.innerText = data.elements[i].text;
+
+    left.addEventListener('click', () => {
+
+      i--;
+
+      if (i < 0) {
+        i = tabImg.length - 1;
+      }
+
+      image.src = tabImg[i];
+
+      titre.innerText = data.elements[i].title;
+      text.innerText = data.elements[i].text;
+
+    })
+
+    right.addEventListener('click', () => {
+
+      i++;
+
+      if (i > tabImg.length - 1) {
+        i = 0;
+      }
+
+      image.src = tabImg[i];
+
+      titre.innerText = data.elements[i].title;
+      text.innerText = data.elements[i].text;
+
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>
